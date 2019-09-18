@@ -1,7 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Header from './Header'
-import Counter from './Counter'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Header from './Header';
+import Counter from './Counter';
+import { createStore } from 'redux';
+
+console.log(createStore);
+// createStore( reducer, preloadedState, enhancer)
+const store = createStore((prevState, nextState) => {
+
+});
+debugger
 
 // redux to manage this: {count: 0}
 
