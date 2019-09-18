@@ -3,28 +3,29 @@ import PropTypes from 'prop-types'
 import Header from './Header'
 import Counter from './Counter'
 
+// redux to manage this: {count: 0}
+
 class App extends React.Component {
 
-  state = {
-    count: 0
-  }
+  // state = {
+  //   count: 0
+  // }
 
   increment = () => {
-    console.log("hi");
-    this.setState( prevState => ({ count: prevState.count + 1}));
+    // this.setState( prevState => ({ count: prevState.count + 1}));
   };
 
   decrement = () => {
-    this.setState( prevState => ({ count: prevState.count - 1}));
+    // this.setState( prevState => ({ count: prevState.count - 1}));
   };
   render () {
     return(
       <div className="App">
-        <Header count={this.state.count}/>
+        <Header count={null}/>
         <Counter
           increment={this.increment}
           decrement={this.decrement}
-          count={this.state.count}
+          count={null}
           />
       </div>
     );
