@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Header from './Header'
+import Counter from './Counter'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  state = {
+    count: 0
+  }
+
+  increment = () => {
+    console.log("hi");
+    this.setState( prevState => ({ count: prevState.count + 1}));
+  };
+
+  decrement = () => {
+    this.setState( prevState => ({ count: prevState.count - 1}));
+  };
+  render () {
+    return(
+      <div className="App">
+        <Header count={this.state.count}/>
+        <Counter
+          increment={this.increment}
+          decrement={this.decrement}
+          count={this.state.count}
+          />
+      </div>
+    );
+  }
 }
 
 export default App;
