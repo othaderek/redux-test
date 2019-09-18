@@ -11,6 +11,7 @@ console.log(createStore);
 // dispatch is how we update our store and give it new information and data and
 // it will know how to do something to update that information
 // diispatch is an action that needs two things an object and a "type"
+// type is what the action type is
 
 // getState is like a getter, "give me the info from my store"
 // you can do stuff like store.getState().count, given that "count" object is in you store.
@@ -24,7 +25,7 @@ const store = createStore((prevState, action) => {
   console.log("prevState: ", prevState);
   console.log("action: ", action);
 
-  if (action.count){
+  if (action.type === "INCREMENT"){
     return {count: prevState.count + action.count };
   }
 
@@ -48,11 +49,11 @@ class App extends React.Component {
   render () {
     return(
       <div className="App">
-        <Header count={this.store.getState}/>
+        <Header count={null}/>
         <Counter
           increment={this.increment}
           decrement={this.decrement}
-          count={this.store.getState}
+          count={null}
           />
       </div>
     );
