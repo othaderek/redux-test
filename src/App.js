@@ -33,6 +33,18 @@ const reducer = (prevState = defaultState, action) => {
     case "DECREMENT_COUNT":
       return {count: prevState.count - 1};
       break;
+    case "INCREMENT_COUNT_BY_THREE":
+      return {count: prevState.count + 3};
+      break;
+    case "INCREMENT_COUNT_BY_FIVE":
+      return {count: prevState.count + 5};
+      break;
+    case "DECREMENT_COUNT_BY_THREE":
+      return {count: prevState.count - 3};
+      break;
+    case "DECREMENT_COUNT_BY_FIVE":
+      return {count: prevState.count - 5};
+      break;
     default:
       return defaultState
   }
@@ -46,11 +58,11 @@ debugger
 class App extends React.Component {
 
   increment = () => {
-    store.dispatch({ type: "INCREMENT_COUNT", count: 1 })
+    store.dispatch({ type: "INCREMENT_COUNT"})
   };
 
   decrement = () => {
-    store.dispatch({ type: "DECREMENT_COUNT", count: -1 })
+    store.dispatch({ type: "DECREMENT_COUNT"})
   };
   render () {
     return(
