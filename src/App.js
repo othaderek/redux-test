@@ -21,30 +21,31 @@ console.log(createStore);
 
 // Whatever the return value is for store.getState() is my "store"
 
-const store = createStore((prevState, action) => {
+const reducer = (prevState = {count: 0}, action) => {
   console.log("prevState: ", prevState);
   console.log("action: ", action);
 
-  if (action.type === "INCREMENT"){
-    return {count: prevState.count + action.count };
-  }
+  if (action.type === "INCREMENT_COUNT"){
+    return {count: prevState.count + 1 };
+  } else if (action.type === "DECREMENT_COUNT"){
+    return {count: prevState.count - 1}
+  };
+  return prevState
+}
 
-  return {count: 0}
-});
+const store = createStore(reducer);
+
+debugger
 
 // redux to manage this: {count: 0}
 class App extends React.Component {
 
-  // state = {
-  //   count: 0
-  // }
-
   increment = () => {
-    store.dispatch({ type: "", count: 1 })
+    store.dispatch({ type: "INCREMENT_COUNT", count: 1 })
   };
 
   decrement = () => {
-    store.dispatch({ type: "", count: -1 })
+    store.dispatch({ type: "DECREMENT_COUNT", count: -1 })
   };
   render () {
     return(
