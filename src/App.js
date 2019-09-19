@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Counter from './Counter';
 import { createStore } from 'redux';
-
-console.log(createStore);
 // createStore( reducer, preloadedState, enhancer)
 // subscribe, getState, dispatch are main 3 functions in store that we typically use.
 
@@ -20,6 +18,7 @@ console.log(createStore);
 // ability to have a callback with every data change.
 
 // Whatever the return value is for store.getState() is my "store"
+console.log(createStore);
 
 const defaultState = { count: 0 };
 
@@ -27,12 +26,16 @@ const reducer = (prevState = defaultState, action) => {
   console.log("prevState: ", prevState);
   console.log("action: ", action);
 
-  if (action.type === "INCREMENT_COUNT"){
-    return {count: prevState.count + 1 };
-  } else if (action.type === "DECREMENT_COUNT"){
-    return {count: prevState.count - 1}
-  };
-  return prevState
+  switch (action.type) {
+    case "INCREMENT_COUNT":
+      return {count: prevState.count + 1 };
+      break;
+    case "DECREMENT_COUNT":
+      return {count: prevState.count - 1};
+      break;
+    default:
+      return defaultState
+  }
 }
 
 const store = createStore(reducer);
