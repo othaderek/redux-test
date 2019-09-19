@@ -22,31 +22,31 @@ console.log(createStore);
 
 const defaultState = { count: 0 };
 
-const reducer = (prevState = defaultState, action) => {
-  console.log("prevState: ", prevState);
+const reducer = (state = defaultState, action) => {
+  console.log("state: ", state);
   console.log("action: ", action);
 
   switch (action.type) {
     case "INCREMENT_COUNT":
-      return {count: prevState.count + 1 };
+      return {count: state.count + 1 };
       break;
     case "DECREMENT_COUNT":
-      return {count: prevState.count - 1};
+      return {count: state.count - 1};
       break;
     case "INCREMENT_COUNT_BY_THREE":
-      return {count: prevState.count + 3};
+      return {count: state.count + 3};
       break;
     case "INCREMENT_COUNT_BY_FIVE":
-      return {count: prevState.count + 5};
+      return {count: state.count + 5};
       break;
     case "DECREMENT_COUNT_BY_THREE":
-      return {count: prevState.count - 3};
+      return {count: state.count - 3};
       break;
     case "DECREMENT_COUNT_BY_FIVE":
-      return {count: prevState.count - 5};
+      return {count: state.count - 5};
       break;
     default:
-      return defaultState
+      return state
   }
 }
 
