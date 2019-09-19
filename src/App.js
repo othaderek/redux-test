@@ -21,7 +21,9 @@ console.log(createStore);
 
 // Whatever the return value is for store.getState() is my "store"
 
-const reducer = (prevState = {count: 0}, action) => {
+const defaultState = { count: 0 };
+
+const reducer = (prevState = defaultState, action) => {
   console.log("prevState: ", prevState);
   console.log("action: ", action);
 
