@@ -15,13 +15,13 @@ class Counter extends React.Component {
   }
 }
 const firstFunction = (firstArg, secondArg) => {
-  console.log('firstFunction arg: ', firstArg);
-  console.log('secondArg: ', secondArg);
+  // console.log('firstFunction arg: ', firstArg);
+  // console.log('secondArg: ', secondArg);
 }
 
 const secondFunction = (firstArg, secondArg) => {
-  console.log('firstFunction arg: ', firstArg);
-  console.log('secondArg: ', secondArg );
+  // console.log('firstFunction arg: ', firstArg);
+  // console.log('secondArg: ', secondArg );
 
 }
 

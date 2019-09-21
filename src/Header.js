@@ -13,14 +13,18 @@ class Header extends React.Component {
   }
 }
 
-const firstFunction = (firstArg, secondArg) => {
-  console.log('firstFunction arg: ', firstArg);
-  console.log('secondArg: ', secondArg);
+// First argument is always state/store
+// Second argument is always props.
+
+const firstFunction = (state, props) => {
+  console.log('state: ', state);
+  console.log('props: ', props);
+  return {count: state.count}
 }
 
 const secondFunction = (firstArg, secondArg) => {
-  console.log('firstFunction arg: ', firstArg);
-  console.log('secondArg: ', secondArg );
+  // console.log('firstFunction arg: ', firstArg);
+  // console.log('secondArg: ', secondArg );
 
 }
 
