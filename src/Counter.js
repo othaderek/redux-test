@@ -8,21 +8,31 @@ class Counter extends React.Component {
   render () {
     return(
       <div className="Counter">
-      <button onClick={this.props.increment}>+</button>
-      <button onClick={this.props.decrement}>-</button>
+      <button onClick={this.props.incrementCount}>+</button>
+      <button onClick={this.props.decrementCount}>-</button>
       </div>
     );
   }
 }
-const firstFunction = (firstArg, secondArg) => {
-  // console.log('firstFunction arg: ', firstArg);
-  // console.log('secondArg: ', secondArg);
+const mapStateToProps = (store, props) => {
+  // console.log('store: ', store);
+  // console.log('props: ', props);
+  return {count: store.count}
 }
 
-const secondFunction = (firstArg, secondArg) => {
-  // console.log('firstFunction arg: ', firstArg);
-  // console.log('secondArg: ', secondArg );
-
+// THIS IS MY SETTER FOR REDUX FOR A COMPONENT
+const mapDispatchToProps = (dispatch, props) => {
+  // console.log('firstFunction arg: ', dispatch);
+  // console.log('props: ', props );
+  return {
+    incrementCount: () => {
+      dispatch({ type: "INCREMENT_COUNT", count: 1 })
+    },
+    decrementCount: () => {
+      dispatch({ type: "DECREMENT_COUNT", count: 1})
+    }
+  }
 }
 
-export default connect(firstFunction, secondFunction)(Counter);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
