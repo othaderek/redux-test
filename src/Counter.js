@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 class Counter extends React.Component {
 
@@ -13,5 +14,15 @@ class Counter extends React.Component {
     );
   }
 }
+const firstFunction = (firstArg, secondArg) => {
+  console.log('firstFunction arg: ', firstArg);
+  console.log('secondArg: ', secondArg);
+}
 
-export default Counter;
+const secondFunction = (firstArg, secondArg) => {
+  console.log('firstFunction arg: ', firstArg);
+  console.log('secondArg: ', secondArg );
+
+}
+
+export default connect(firstFunction, secondFunction)(Counter);

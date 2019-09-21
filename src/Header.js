@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 class Header extends React.Component {
 
@@ -12,4 +13,15 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+const firstFunction = (firstArg, secondArg) => {
+  console.log('firstFunction arg: ', firstArg);
+  console.log('secondArg: ', secondArg);
+}
+
+const secondFunction = (firstArg, secondArg) => {
+  console.log('firstFunction arg: ', firstArg);
+  console.log('secondArg: ', secondArg );
+
+}
+
+export default connect(firstFunction, secondFunction)(Header)

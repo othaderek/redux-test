@@ -15,14 +15,10 @@ import { createStore } from 'redux';
 // ability to have a callback with every data change.
 
 // Whatever the return value is for store.getState() is my "store"
-console.log(createStore);
 
 const defaultState = { count: 0 };
 
 export default (state = defaultState, action) => {
-  console.log("state: ", state);
-  console.log("action: ", action);
-
   switch (action.type) {
     case "INCREMENT_COUNT":
       return {count: state.count + action.count };
