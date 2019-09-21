@@ -22,18 +22,4 @@ const mapStateToProps = (store, props) => {
   return {count: store.count}
 }
 
-// THIS IS MY SETTER FOR REDUX FOR A COMPONENT
-const mapDispatchToProps = (dispatch, props) => {
-  // console.log('firstFunction arg: ', dispatch);
-  // console.log('props: ', props );
-  return {
-    incrementCount: () => {
-      dispatch({ type: "INCREMENT_COUNT", count: 1 })
-    },
-    decrementCount: () => {
-      dispatch({ type: "DECREMENT_COUNT", count: 1})
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default connect(mapStateToProps)(Header)
