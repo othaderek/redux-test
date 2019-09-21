@@ -7,7 +7,7 @@ class Header extends React.Component {
   render () {
     return(
       <div>
-        <h1>The count is {null}</h1>
+        <h1>The count is {this.props.count}</h1>
       </div>
     );
   }
@@ -15,17 +15,18 @@ class Header extends React.Component {
 
 // First argument is always state/store
 // Second argument is always props.
-
-const firstFunction = (state, props) => {
-  console.log('state: ', state);
+// THIS IS MY GETTER FOR REDUX FOR A COMPONENT
+const mapStateToProps = (store, props) => {
+  console.log('store: ', store);
   console.log('props: ', props);
-  return {count: state.count}
+  return {count: store.count}
 }
 
-const secondFunction = (firstArg, secondArg) => {
-  // console.log('firstFunction arg: ', firstArg);
-  // console.log('secondArg: ', secondArg );
+// THIS IS MY SETTER FOR REDUX FOR A COMPONENT
+const mapDispatchToProps = (dispatch, props) => {
+  console.log('firstFunction arg: ', dispatch);
+  console.log('props: ', props );
 
 }
 
-export default connect(firstFunction, secondFunction)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
