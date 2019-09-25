@@ -18,7 +18,7 @@ class Header extends React.Component {
 // THIS IS MY GETTER FOR REDUX FOR A COMPONENT
 const mapStateToProps = (store, props) => {
   // console.log('store: ', store);
-  console.log('props: ', props);
+  // console.log('props: ', props);
   return {count: store.count}
 }
 
