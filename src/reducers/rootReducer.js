@@ -25,6 +25,6 @@ export default (state = defaultState, action) => {
     case "DECREMENT_COUNT":
       return {count: state.count - action.count};
     default:
-      return state
+      return state;
   }
 }
